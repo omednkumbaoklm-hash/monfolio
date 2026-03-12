@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Projets | NKUMBA OMED</title>
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+--deep-purple: #6B2D5B;
+--amethyst: #9966CC;
+--ruby: #E0115F;
+--ruby-dark: #9B111E;
+--sapphire: #0F52BA;
+--emerald: #50C878;
+--emerald-dark: #2E8B57;
+--dark-bg: #0a0a0f;
+--text-light: #e0e0e0;
+--text-muted: #888;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+margin:0;
+font-family:'Rajdhani', sans-serif;
+background: var(--dark-bg);
+color: var(--text-light);
+scroll-behavior: smooth;
+overflow-x: hidden;
+}
+
+/* Luxurious Animated Background */
+.luxury-bg {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+z-index: -1;
+overflow: hidden;
+}
+
+.luxury-bg::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: 
+radial-gradient(ellipse at 20% 20%, rgba(107, 45, 91, 0.3) 0%, transparent 50%),
+radial-gradient(ellipse at 80% 80%, rgba(15, 82, 186, 0.25) 0%, transparent 50%),
+radial-gradient(ellipse at 50% 50%, rgba(153, 102, 204, 0.15) 0%, transparent 70%),
+var(--dark-bg);
+animation: luxury-pulse 8s ease-in-out infinite;
+}
+
+@keyframes luxury-pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.8; }
+}
+
+/* Floating Luxury Orbs */
+.orb {
+position: absolute;
+border-radius: 50%;
+filter: blur(80px);
+animation: orb-float 20s infinite ease-in-out;
+}
+
+.orb-1 {
+width: 400px;
+height: 400px;
+background: rgba(107, 45, 91, 0.25);
+top: 10%;
+left: 5%;
+animation-delay: 0s;
+}
+
+.orb-2 {
+width: 350px;
+height: 350px;
+background: rgba(224, 17, 95, 0.2);
+top: 50%;
+right: 10%;
+animation-delay: -5s;
+}
+
+.orb-3 {
+width: 300px;
+height: 300px;
+background: rgba(15, 82, 186, 0.2);
+bottom: 20%;
+left: 25%;
+animation-delay: -10s;
+}
+
+@keyframes orb-float {
+0%, 100% { transform: translate(0, 0) scale(1); }
+25% { transform: translate(30px, -30px) scale(1.05); }
+50% { transform: translate(-20px, 20px) scale(0.95); }
+75% { transform: translate(20px, 30px) scale(1.02); }
+}
+
+/* Navigation */
+nav{
+display:flex;
+justify-content:center;
+gap:35px;
+padding:25px;
+background:rgba(10, 10, 15, 0.9);
+position:sticky;
+top:0;
+z-index:100;
+backdrop-filter: blur(15px);
+border-bottom: 1px solid rgba(153, 102, 204, 0.3);
+}
+
+nav a{
+color: var(--text-light);
+text-decoration:none;
+font-weight: 600;
+font-size: 1rem;
+letter-spacing: 2px;
+text-transform: uppercase;
+position: relative;
+transition: all 0.3s ease;
+font-family: 'Orbitron', sans-serif;
+}
+
+nav a::before {
+content: '';
+position: absolute;
+bottom: -8px;
+left: 0;
+width: 100%;
+height: 2px;
+background: linear-gradient(90deg, var(--deep-purple), var(--amethyst), var(--ruby));
+transform: scaleX(0);
+transform-origin: left;
+transition: transform 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+color: var(--amethyst);
+text-shadow: 0 0 10px var(--amethyst), 0 0 20px var(--deep-purple);
+}
+
+nav a:hover::before, nav a.active::before {
+transform: scaleX(1);
+}
+
+/* Page Header */
+.page-header {
+text-align: center;
+padding: 80px 20px 40px;
+}
+
+.page-header h1 {
+font-family: 'Orbitron', sans-serif;
+font-size: 3rem;
+background: linear-gradient(135deg, var(--deep-purple), var(--amethyst), var(--ruby));
+-webkit-background-clip: text;
+color: transparent;
+background-clip: text;
+margin-bottom: 15px;
+}
+
+.page-header p {
+color: var(--text-muted);
+font-size: 1.2rem;
+}
+
+/* Projects Section */
+.projects-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 40px 20px 100px;
+}
+
+.projects-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+gap: 40px;
+}
+
+.project-card {
+background: rgba(13, 13, 21, 0.8);
+border: 1px solid rgba(153, 102, 204, 0.3);
+border-radius: 15px;
+overflow: hidden;
+transition: all 0.4s ease;
+position: relative;
+}
+
+.project-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(107, 45, 91, 0.1), rgba(15, 82, 186, 0.1));
+opacity: 0;
+transition: opacity 0.3s ease;
+z-index: 1;
+}
+
+.project-card:hover {
+transform: translateY(-15px);
+border-color: var(--ruby);
+box-shadow: 
+0 20px 50px rgba(224, 17, 95, 0.25),
+0 0 30px rgba(224, 17, 95, 0.1);
+}
+
+.project-card:hover::before {
+opacity: 1;
+}
+
+.project-image {
+height: 200px;
+background: linear-gradient(135deg, var(--deep-purple), var(--sapphire));
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+overflow: hidden;
+}
+
+.project-image::after {
+content: '';
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(107, 45, 91, 0.3), rgba(15, 82, 186, 0.3));
+}
+
+.project-image i {
+font-size: 5rem;
+color: var(--text-light);
+opacity: 0.5;
+z-index: 2;
+position: relative;
+}
+
+.project-content {
+padding: 30px;
+position: relative;
+z-index: 2;
+}
+
+.project-content h3 {
+font-family: 'Orbitron', sans-serif;
+font-size: 1.4rem;
+color: var(--amethyst);
+margin-bottom: 15px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.project-content p {
+color: var(--text-muted);
+line-height: 1.8;
+margin-bottom: 20px;
+font-size: 1rem;
+}
+
+.project-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 25px;
+}
+
+.project-tag {
+padding: 6px 14px;
+background: rgba(107, 45, 91, 0.2);
+border: 1px solid var(--deep-purple);
+border-radius: 20px;
+font-size: 0.75rem;
+color: var(--amethyst);
+font-family: 'Orbitron', sans-serif;
+text-transform: uppercase;
+letter-spacing: 1px;
+transition: all 0.3s ease;
+}
+
+.project-card:hover .project-tag {
+background: var(--deep-purple);
+color: var(--text-light);
+}
+
+/* Buttons */
+.btn{
+display:inline-flex;
+align-items: center;
+gap: 10px;
+padding: 14px 28px;
+border: 2px solid var(--amethyst);
+border-radius: 3px;
+font-weight: 700;
+font-family: 'Orbitron', sans-serif;
+cursor:pointer;
+background: transparent;
+color: var(--amethyst);
+transition: all 0.3s ease;
+text-transform: uppercase;
+letter-spacing: 2px;
+position: relative;
+overflow: hidden;
+text-decoration: none;
+font-size: 0.85rem;
+}
+
+.btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, transparent, rgba(153, 102, 204, 0.3), transparent);
+transition: left 0.5s ease;
+}
+
+.btn:hover{
+background: var(--amethyst);
+color: var(--dark-bg);
+box-shadow: 
+0 0 20px var(--amethyst),
+0 0 40px var(--deep-purple);
+}
+
+.btn:hover::before {
+left: 100%;
+}
+
+/* Footer */
+footer{
+text-align:center;
+padding: 45px;
+color: var(--text-muted);
+background: rgba(10, 10, 15, 0.9);
+border-top: 1px solid rgba(153, 102, 204, 0.2);
+font-family: 'Orbitron', sans-serif;
+font-size: 0.9rem;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
+footer a {
+color: var(--amethyst);
+text-decoration: none;
+transition: all 0.3s ease;
+}
+
+footer a:hover {
+color: var(--ruby);
+text-shadow: 0 0 10px var(--ruby);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+nav {
+gap: 15px;
+padding: 15px;
+flex-wrap: wrap;
+}
+
+nav a {
+font-size: 0.8rem;
+}
+
+.page-header h1 {
+font-size: 2rem;
+}
+
+.projects-grid {
+grid-template-columns: 1fr;
+}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+background: linear-gradient(180deg, var(--deep-purple), var(--amethyst));
+border-radius: 4px;
+}
+
+/* Animations */
+.fade-in {
+opacity: 0;
+transform: translateY(30px);
+transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Luxurious Animated Background -->
+<div class="luxury-bg">
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+</div>
+
+<nav>
+
+<a href="index.html">Accueil</a>
+<a href="about.html">À propos</a>
+<a href="skills.html">Compétences</a>
+<a href="projects.html" class="active">Projets</a>
+<a href="contact.html">Contact</a>
+
+</nav>
+
+<header class="page-header">
+
+<h1>Mes Projets</h1>
+<p>Découvrez mes réalisations et expériences</p>
+
+</header>
+
+<section class="projects-container">
+
+<div class="projects-grid">
+
+<!-- Project 1 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-book-open"></i>
+</div>
+<div class="project-content">
+<h3>Bibliothèque Numérique</h3>
+<p>
+Plateforme web permettant de consulter des livres et auteurs avec interface moderne et intuitive. Gestion complète des utilisateurs.
+</p>
+<div class="project-tags">
+<span class="project-tag">HTML</span>
+<span class="project-tag">CSS</span>
+<span class="project-tag">JavaScript</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+<!-- Project 2 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-briefcase"></i>
+</div>
+<div class="project-content">
+<h3>Gestion d'Entreprise</h3>
+<p>
+Application web pour la gestion des clients, contrats et projets avec tableau de bord interactif et statistiques en temps réel.
+</p>
+<div class="project-tags">
+<span class="project-tag">React</span>
+<span class="project-tag">Node.js</span>
+<span class="project-tag">MongoDB</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+<!-- Project 3 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-microchip"></i>
+</div>
+<div class="project-content">
+<h3>Projet Arduino</h3>
+<p>
+Système intelligent de feu de signalisation basé sur Arduino Mega et capteurs ultrasons. Projet IoT démonstration.
+</p>
+<div class="project-tags">
+<span class="project-tag">Arduino</span>
+<span class="project-tag">C++</span>
+<span class="project-tag">IoT</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+<!-- Project 4 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-shopping-cart"></i>
+</div>
+<div class="project-content">
+<h3>E-Commerce</h3>
+<p>
+Plateforme de commerce électronique complète avec gestion du panier, paiement sécurisé et interface administrateur.
+</p>
+<div class="project-tags">
+<span class="project-tag">React</span>
+<span class="project-tag">Express</span>
+<span class="project-tag">Stripe</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+<!-- Project 5 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-chart-line"></i>
+</div>
+<div class="project-content">
+<h3>Dashboard Analytics</h3>
+<p>
+Tableau de bord interactif pour la visualisation de données avec graphiques dynamiques et rapports automatisés.
+</p>
+<div class="project-tags">
+<span class="project-tag">Vue.js</span>
+<span class="project-tag">D3.js</span>
+<span class="project-tag">API</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+<!-- Project 6 -->
+<div class="project-card fade-in">
+<div class="project-image">
+<i class="fas fa-mobile-alt"></i>
+</div>
+<div class="project-content">
+<h3>Application Mobile</h3>
+<p>
+Application mobile cross-platform pour la gestion de tâches et la productivité personnelle avec synchronisation cloud.
+</p>
+<div class="project-tags">
+<span class="project-tag">React Native</span>
+<span class="project-tag">Firebase</span>
+<span class="project-tag">Redux</span>
+</div>
+<a href="#" class="btn">Voir le projet</a>
+</div>
+</div>
+
+</div>
+
+<div style="text-align: center; margin-top: 60px;">
+<a href="contact.html" class="btn" style="padding: 18px 40px; font-size: 1rem;">
+<i class="fas fa-paper-plane"></i>
+Me contacter pour un projet
+</a>
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2024 <a href="index.html">NKUMBA OMED</a> // Développeur Frontend</p>
+
+</footer>
+
+<script>
+// Scroll animations
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('visible');
+}
+});
+}, observerOptions);
+
+document.querySelectorAll('.fade-in').forEach(el => {
+observer.observe(el);
+});
+</script>
+
+</body>
+</html>
